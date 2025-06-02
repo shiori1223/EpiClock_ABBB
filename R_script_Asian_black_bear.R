@@ -7,14 +7,14 @@ library(ggplot2)
 library(car)
 
 ##Data input
-ABBB<-read.csv("Asian_black_bear_blood.csv")
-ABBBS<-read.csv("Asian_black_bear_blood_standardized.csv")
+ABBB <- read.csv("Asian_black_bear_blood.csv")
+ABBBS <- read.csv("Asian_black_bear_blood_standardized.csv")
 
 ##The correlation between methylation level and age
 #SLC12A5-1
 cor.test(ABBB$age,ABBB$SLC12A5_1_methylation_rate_ave)
 
-SLC1<-ggplot(ABBB,aes(x=age,y=SLC12A5_1_methylation_rate_ave))+theme_bw()+
+SLC1 <- ggplot(ABBB,aes(x=age,y=SLC12A5_1_methylation_rate_ave))+theme_bw()+
 geom_point(aes(shape=environment,color=sex),size=2,stroke=2)+
 labs(x="Age (year)",y="DNA methylation (%)")+
 scale_shape_manual(name="environment",labels=c("Captive"="captive","Wild"="wild"),values=c("Captive"=1, "Wild"=3))+
@@ -28,7 +28,7 @@ theme(plot.title=element_text(size=20,hjust = 0.5))
 #SLC12A5-2
 cor.test(ABBB$age,ABBB$SLC12A5_2_methylation_rate_ave)
 
-SLC2<-ggplot(ABBB,aes(x=age,y=SLC12A5_2_methylation_rate_ave))+theme_bw()+
+SLC2 <- ggplot(ABBB,aes(x=age,y=SLC12A5_2_methylation_rate_ave))+theme_bw()+
 geom_point(aes(shape=environment,color=sex),size=2,stroke=2)+
 labs(x="Age (year)",y="DNA methylation (%)")+
 scale_shape_manual(name="environment",labels=c("Captive"="captive","Wild"="wild"),values=c("Captive"=1, "Wild"=3))+
